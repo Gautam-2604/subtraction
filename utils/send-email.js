@@ -9,7 +9,7 @@ export const sendReminderEmail = async ({ to, type, subscription }) => {
 
   if(!template) throw new Error('Invalid email type');
 
-  
+
   const mailInfo = {
     userName: subscription.user.name,
     subscriptionName: subscription.name,
@@ -19,6 +19,7 @@ export const sendReminderEmail = async ({ to, type, subscription }) => {
     paymentMethod: subscription.paymentMethod,
   }
 
+  
   const message = template.generateBody(mailInfo);
   const subject = template.generateSubject(mailInfo);
 
